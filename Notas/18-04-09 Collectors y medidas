@@ -1,0 +1,59 @@
+suma := 0.
+#(1 5 9) do: [:element  | suma := suma + element] .
+suma.
+
+suma := 0.
+#(1 5 9) inject: 15 
+into: 
+[:suma :element  | suma + element] .
+
+'asdfasdfasefd' select: [:char | char isVowel].
+
+'asdfasdfasefd' asSet select: [:char | char isVowel].
+
+'asdfasdfasefd' asBag select: [:char | char isVowel].
+
+-cesar?:
+'abacad' collect: [:char | char class numericValue: char numericValue + 1 ] .
+
+
+-Medidas:
+(10 * peso) + (20 * dollar).
+
+(1 * peso) + 10.
+
+5 * (10 * peso).
+
+(5 * peso) * (10 * peso).
+
+metros := BaseUnit nameForOne: 'metro' nameForMany: 'metros' sign: 'm'.
+diezMetros := 10 * metros.
+
+pulgadas := ProportionalDerivedUnit 
+baseUnit: metros 
+conversionFactor: 0.0254
+nameForOne: 'pulgada' 
+nameForMany: 'pulgadas' 
+sign: 'p'.
+
+sesentaPulgadas := 60 * pulgadas.
+
+centimetros := ProportionalDerivedUnit
+baseUnit: metros
+conversionFactor: (1/100)
+nameForOne: 'centimetro'
+nameForMany: 'centimetros'
+sign: 'cm'.
+
+sesentaPulgadas convertTo: centimetros.
+
+diezMetros + sesentaPulgadas.
+
+table := ConversionTable new.
+table measure: 20.5 * peso isEquivalentTo: 1 * dollar.
+table measure: 20.5 * peso isEquivalentTo: 0.5 * euro.
+converter := MeasureConverter on: table.
+
+converter convert: (100 * peso) to: dollar.
+
+-Chalten: fechas
