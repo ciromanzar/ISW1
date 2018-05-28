@@ -1,0 +1,3 @@
+Method object:
+Convertir un metodo en clase. Lo que es local al metodo pasa a ser local a la instancia de la clase. 
+
